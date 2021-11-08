@@ -1,0 +1,13 @@
+.thumnail {
+  min-height: 250px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.thumnail:active {
+  opacity: 0.7;
+}
+
+.thumnail:hover {
+  transform: scale(1.02);
+}

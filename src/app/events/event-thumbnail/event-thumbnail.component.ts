@@ -22,13 +22,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       </div>
     </div>
   `,
-  styles: [
-    `
-      .thumnail {
-        min-height: 250px;
-      }
-    `,
-  ],
+  styleUrls: ['./event-thumbnail.css'],
 })
 export class EventThumbnailComponent {
   //Receive data from parent to children (props)
