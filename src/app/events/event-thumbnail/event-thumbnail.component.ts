@@ -3,7 +3,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'event-thumbnail',
   template: `
-    <div [ngClass]="getStyle()" class="p-4 mt-4 thumnail">
+    <div
+      [routerLink]="['/events', event.id]"
+      [ngClass]="getStyle()"
+      class="p-4 mt-4 thumnail"
+    >
       <h2>
         {{ event?.name }}
       </h2>
