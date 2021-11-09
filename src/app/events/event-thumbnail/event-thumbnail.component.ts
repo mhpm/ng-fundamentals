@@ -31,14 +31,6 @@ export class EventThumbnailComponent {
   //Return data from children to parent
   @Output() eventClick = new EventEmitter();
 
-  handleClick() {
-    this.eventClick.emit(this.event.name);
-  }
-
-  logFoo() {
-    console.log('Foo');
-  }
-
   getStyle() {
     if (this.event.id === 1) return 'bg-light text-dark';
     else return 'bg-dark';

@@ -4,5 +4,6 @@
     #thumbnail
     *ngFor="let event of events"
     [event]="event"
+    (click)="handleEventClicked(event.name)"
   ></event-thumbnail>
 </div>
