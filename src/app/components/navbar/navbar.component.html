@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container-fluid px-4">
     <a class="navbar-brand" [routerLink]="['/events']">ANGULAR EVENTS</a>
     <button
@@ -42,13 +42,13 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-light" type="submit">Search</button>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a [routerLink]="['user/profile']" class="nav-link"
+              >Welcome: Michelle</a
+            >
+          </li>
+        </ul>
       </form>
     </div>
   </div>

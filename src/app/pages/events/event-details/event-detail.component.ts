@@ -6,7 +6,7 @@ import { EventService } from 'src/app/pages/events/services/event.service';
   templateUrl: './event-detail.component.html',
   styleUrls: ['./event-detail.css'],
 })
-export class EventDEtailComponent implements OnInit {
+export class EventDetailComponent implements OnInit {
   event: any;
 
   constructor(
