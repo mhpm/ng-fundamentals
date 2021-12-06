@@ -1,27 +1,76 @@
 <h1>Login</h1>
 <hr />
-<div class="col-md-4">
-  <form autocomplete="off">
-    <div class="form-group">
-      <label for="userName">User Name:</label>
-      <input
-        id="userName"
-        type="text"
-        class="form-control"
-        placeholder="User Name..."
-      />
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input
-        id="password"
-        type="password"
-        class="form-control"
-        placeholder="Password..."
-      />
-    </div>
+<div
+  style="height: 300px"
+  class="d-flex justify-content-center align-items-center"
+>
+  <div style="width: 400px">
+    <form
+      #loginForm="ngForm"
+      (ngSubmit)="onSubmit(loginForm.value)"
+      autocomplete="off"
+      novalidate
+    >
+      <div class="form-group mb-3">
+        <label class="form-label" for="userName">User Name:</label>
+        <em
+          class="float-end text-warning"
+          *ngIf="
+            loginForm.controls.userName?.invalid &&
+            (loginForm.controls.userName?.touched || mouseOverLogin)
+          "
+          >Required</em
+        >
+        <input
+          id="userName"
+          (ngModel)="(userName)"
+          name="userName"
+          type="text"
+          class="form-control"
+          placeholder="User Name..."
+          required
+        />
+      </div>
+      <div class="form-group mb-4">
+        <label class="form-label" for="password">Password:</label>
+        <em
+          class="float-end text-warning"
+          *ngIf="
+            loginForm.controls.password?.invalid &&
+            (loginForm.controls.password?.touched || mouseOverLogin)
+          "
+          >Required</em
+        >
+        <input
+          id="password"
+          (ngModel)="(password)"
+          name="password"
+          type="password"
+          class="form-control"
+          placeholder="Password..."
+          required
+        />
+      </div>
 
-    <button type="submit" class="btn btn-primary">Login</button>
-    <button type="button" class="btn btn-default">Cancel</button>
-  </form>
+      <span
+        (mouseenter)="mouseOverLogin = true"
+        (mouseleave)="mouseOverLogin = false"
+      >
+        <button
+          [disabled]="loginForm.invalid"
+          type="submit"
+          class="btn btn-primary btn-dark"
+        >
+          Login
+        </button>
+      </span>
+      <button
+        type="button"
+        (click)="onCancel()"
+        class="btn btn-default text-white ms-2"
+      >
+        Cancel
+      </button>
+    </form>
+  </div>
 </div>

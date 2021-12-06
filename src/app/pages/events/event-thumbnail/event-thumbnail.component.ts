@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IEvent } from '..';
 
 @Component({
   selector: 'event-thumbnail',
@@ -7,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class EventThumbnailComponent {
   //Receive data from parent to children (props)
-  @Input() event: any;
+  @Input() event: IEvent | any;
 
   //Return data from children to parent
   @Output() eventClick = new EventEmitter();

@@ -44,8 +44,17 @@
       <form class="d-flex">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a [routerLink]="['user/profile']" class="nav-link"
-              >Welcome: Michelle</a
+            <a
+              *ngIf="!authService.isAuthenticated()"
+              [routerLink]="['user/login']"
+              class="nav-link"
+              >Login</a
+            >
+            <a
+              *ngIf="authService.isAuthenticated()"
+              [routerLink]="['user/profile']"
+              class="nav-link"
+              >Welcome: {{ authService.currentUser.firstName }}</a
             >
           </li>
         </ul>

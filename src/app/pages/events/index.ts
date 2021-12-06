@@ -5,3 +5,4 @@ export * from './events-list.component';
 export * from './services/event-list.resolve.service';
 export * from './services/event-route-activator.service';
 export * from './services/event.service';
+export * from './event.model';

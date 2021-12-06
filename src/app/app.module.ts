@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
@@ -18,9 +19,15 @@ import {
   EventThumbnailComponent,
   EventService,
 } from './pages/events';
+import { AuthService } from './pages/user/services/auth.service';
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+  ],
   declarations: [
     NavbarCompoent,
     AppComponent,
@@ -35,6 +42,7 @@ import {
     EventListResolver,
     EventService,
     ToastrService,
+    AuthService,
     EventRouteActivator,
   ],
   bootstrap: [AppComponent],
