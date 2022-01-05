@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+.error input {
+  background-color: #e3c3c5;
+}
+.error select {
+  background-color: #e3c3c5;
+}
+.error textarea {
+  background-color: #e3c3c5;
+}
+
+.error ::-webkit-input-placeholder {
+  color: tomato;
+}
+
+.error ::-moz-placeholder {
+  color: tomato;
+}
+.error :-moz-placeholder {
+  color: tomato;
+}
+
+.error :-ms-input-placeholder {
+  color: tomato;
+}
+
+.error em {
+  float: right;
+  color: #e3c3c5;
+  padding-left: 10px;
+}

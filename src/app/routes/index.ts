@@ -8,6 +8,7 @@ import {
   EventsListComponent,
   EventListResolver,
   EventRouteActivator,
+  CreateSessionComponent,
 } from '../pages/events';
 
 export const appRoutes: Routes = [
@@ -25,6 +26,10 @@ export const appRoutes: Routes = [
     path: 'events/:id',
     component: EventDetailComponent,
     canActivate: [EventRouteActivator], // guard for prevent user access
+  },
+  {
+    path: 'events/session/new',
+    component: CreateSessionComponent,
   },
   { path: 'about', component: AboutComponent },
   { path: '404', component: Error404Component },

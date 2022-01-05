@@ -1,0 +1,54 @@
+<div class="event">
+  <img [src]="event?.imageUrl" [alt]="event?.name" />
+
+  <div class="row">
+    <div class="col-md-11">
+      <h2>{{ event?.name }}</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div><strong>Date:</strong> {{ event?.date }}</div>
+      <div><strong>Time:</strong> {{ event?.time }}</div>
+      <div><strong>Price:</strong> ${{ event?.price }}</div>
+    </div>
+    <div class="col-md-6">
+      <address>
+        <strong>Address:</strong><br />
+        {{ event?.location?.address }}<br />
+        {{ event?.location?.city }}, {{ event?.location?.country }}
+      </address>
+    </div>
+  </div>
+
+  <br />
+
+  <ul class="nav nav-tabs mb-4">
+    <li class="nav-item">
+      <a
+        role="button"
+        class="nav-link link-dark"
+        [ngClass]="{ active: !addMode }"
+        (click)="onListSession()"
+      >
+        Sessions
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        role="button"
+        class="nav-link link-dark"
+        [ngClass]="{ active: addMode }"
+        (click)="onCreateSession()"
+        >Create Session</a
+      >
+    </li>
+  </ul>
+  <create-session
+    *ngIf="addMode"
+    (onSaveSession)="saveSession($event)"
+    (onCancelSession)="cancelSession()"
+  ></create-session>
+  <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
+</div>

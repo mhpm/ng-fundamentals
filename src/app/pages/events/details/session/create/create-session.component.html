@@ -1,0 +1,96 @@
+<div class="col-md-12">
+  <h3>Create Session</h3>
+</div>
+<div class="col-md-6">
+  <form
+    [formGroup]="newSessionForm"
+    (ngSubmit)="onSave(newSessionForm.value)"
+    autocomplete="off"
+  >
+    <div
+      class="form-group mt-3"
+      [ngClass]="{ error: formValidation.validControl(name) }"
+    >
+      <label for="sessionName">Session Name:</label>
+      <em *ngIf="formValidation.validControl(name)"> Required </em>
+      <input
+        id="sessionName"
+        type="text"
+        class="form-control"
+        placeholder="session name..."
+        formControlName="name"
+      />
+    </div>
+    <div
+      class="form-group mt-3"
+      [ngClass]="{ error: formValidation.validControl(presenter) }"
+    >
+      <label for="eventDate">Presenter:</label>
+      <em *ngIf="formValidation.validControl(presenter)"> Required </em>
+      <input
+        id="presenter"
+        type="text"
+        class="form-control"
+        placeholder="presenter..."
+        formControlName="presenter"
+      />
+    </div>
+    <div
+      class="form-group mt-3"
+      [ngClass]="{ error: formValidation.validControl(duration) }"
+    >
+      <label for="duration">Duration:</label>
+      <em *ngIf="formValidation.validControl(duration)"> Required </em>
+      <select formControlName="duration" class="form-control">
+        <option value="">select duration...</option>
+        <option value="1">Half Hour</option>
+        <option value="2">1 Hour</option>
+        <option value="3">Half Day</option>
+        <option value="4">Full Day</option>
+      </select>
+    </div>
+    <div
+      class="form-group mt-3"
+      [ngClass]="{ error: formValidation.validControl(level) }"
+    >
+      <label for="level">Level:</label>
+      <em *ngIf="formValidation.validControl(level)"> Required </em>
+      <select formControlName="level" class="form-control">
+        <option value="">select level...</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </div>
+    <div
+      class="form-group mt-3 mb-4"
+      [ngClass]="{ error: formValidation.validControl(abstract) }"
+    >
+      <label for="abstract">Abstract:</label>
+      <em *ngIf="formValidation.validControl(abstract)"> Required </em>
+      <textarea
+        id="abstract"
+        rows="3"
+        class="form-control"
+        placeholder="abstract..."
+        formControlName="abstract"
+      ></textarea>
+    </div>
+    <span>
+      <button
+        [disabled]="newSessionForm.invalid"
+        type="submit"
+        class="btn btn-primary btn-dark"
+      >
+        Save
+      </button>
+    </span>
+    <button
+      (click)="onCancel()"
+      type="button"
+      class="btn btn-default text-white ms-2"
+    >
+      Cancel
+    </button>
+  </form>
+</div>

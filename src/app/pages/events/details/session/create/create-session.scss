@@ -1,0 +1,26 @@
+.error {
+  input {
+    background-color: #e3c3c5;
+  }
+
+  ::-webkit-input-placeholder {
+    color: tomato;
+  }
+
+  ::-moz-placeholder {
+    color: tomato;
+  }
+  :-moz-placeholder {
+    color: tomato;
+  }
+
+  :-ms-input-placeholder {
+    color: tomato;
+  }
+}
+
+em {
+  float: right;
+  color: #e3c3c5;
+  padding-left: 10px;
+}
