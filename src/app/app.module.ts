@@ -5,7 +5,11 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 
 import { AppComponent } from './app.component';
-import { NavbarCompoent, Error404Component } from './components';
+import {
+  NavbarCompoent,
+  Error404Component,
+  CollapsibleComponent,
+} from './components';
 
 import { FormValidationService, ToastrService } from './services';
 import { AboutComponent } from './pages/about/about.component';
@@ -39,6 +43,7 @@ import { AuthService } from './modules/user/services/auth.service';
     CreateSessionComponent,
     CreateEventComponent,
     SessionListComponent,
+    CollapsibleComponent,
     AboutComponent,
     Error404Component,
   ],
