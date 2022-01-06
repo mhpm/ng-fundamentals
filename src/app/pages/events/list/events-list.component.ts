@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from './services/event.service';
-import { ToastrService } from '../../services/toastr.service';
+import { EventService } from '../services/event.service';
+import { ToastrService } from '../../../services/toastr.service';
 import { ActivatedRoute } from '@angular/router';
-import { IEvent } from '.';
+import { IEvent } from '../event.model';
 
 @Component({
+  selector: 'event-list',
   templateUrl: './events-list.component.html',
 })
 export class EventsListComponent implements OnInit {
