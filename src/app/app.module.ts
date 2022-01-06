@@ -20,8 +20,8 @@ import {
   EventThumbnailComponent,
   EventService,
 } from './pages/events';
-import { AuthService } from './pages/user/services/auth.service';
 import { SessionListComponent } from './pages/events/details/session/list/session-list.component';
+import { AuthService } from './modules/user/services/auth.service';
 
 @NgModule({
   imports: [
