@@ -10,6 +10,8 @@ import { IEvent, ISession } from '..';
 export class EventDetailComponent implements OnInit {
   event: IEvent | any;
   addMode = false;
+  filterBy: string = 'all';
+  sortBy: string = 'votes';
 
   constructor(
     private eventService: EventService,

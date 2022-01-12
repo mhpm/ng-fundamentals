@@ -3,15 +3,15 @@
 
   <div class="row">
     <div class="col-md-11">
-      <h2>{{ event?.name }}</h2>
+      <h2>{{ event?.name | uppercase }}</h2>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6">
-      <div><strong>Date:</strong> {{ event?.date }}</div>
+      <div><strong>Date:</strong> {{ event?.date | date }}</div>
       <div><strong>Time:</strong> {{ event?.time }}</div>
-      <div><strong>Price:</strong> ${{ event?.price }}</div>
+      <div><strong>Price:</strong> {{ event?.price | currency: "USD" }}</div>
     </div>
     <div class="col-md-6">
       <address>
@@ -29,7 +29,7 @@
       <a
         role="button"
         class="nav-link link-dark"
-        [ngClass]="{ active: !addMode }"
+        [class.active]="!addMode"
         (click)="onListSession()"
       >
         Sessions
@@ -39,16 +39,79 @@
       <a
         role="button"
         class="nav-link link-dark"
-        [ngClass]="{ active: addMode }"
+        [class.active]="addMode"
         (click)="onCreateSession()"
         >Create Session</a
       >
     </li>
   </ul>
-  <create-session
-    *ngIf="addMode"
-    (onSaveSession)="saveSession($event)"
-    (onCancelSession)="cancelSession()"
-  ></create-session>
-  <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
+  <div *ngIf="addMode" class="d-flex justify-content-center">
+    <create-session
+      (onSaveSession)="saveSession($event)"
+      (onCancelSession)="cancelSession()"
+      class="col-md-6 col-12"
+    ></create-session>
+  </div>
+  <div *ngIf="!addMode">
+    <div class="d-flex justify-content-center mb-2">
+      <div class="btn-group me-3" role="group">
+        <button
+          (click)="sortBy = 'name'"
+          [class.active]="sortBy === 'name'"
+          type="button"
+          class="btn btn-outline-dark"
+        >
+          By name
+        </button>
+        <button
+          (click)="sortBy = 'votes'"
+          [class.active]="sortBy === 'votes'"
+          type="button"
+          class="btn btn-outline-dark"
+        >
+          By votes
+        </button>
+      </div>
+      <div class="btn-group" role="group">
+        <button
+          (click)="filterBy = 'all'"
+          [class.active]="filterBy === 'all'"
+          type="button"
+          class="btn btn-outline-dark"
+        >
+          All
+        </button>
+        <button
+          (click)="filterBy = 'beginer'"
+          [class.active]="filterBy === 'beginer'"
+          type="button"
+          class="btn btn-outline-dark"
+        >
+          Beginer
+        </button>
+        <button
+          (click)="filterBy = 'intermediate'"
+          [class.active]="filterBy === 'intermediate'"
+          type="button"
+          class="btn btn-outline-dark"
+        >
+          Intermediate
+        </button>
+        <button
+          (click)="filterBy = 'advanced'"
+          [class.active]="filterBy === 'advanced'"
+          type="button"
+          class="btn btn-outline-dark"
+        >
+          Advanced
+        </button>
+      </div>
+    </div>
+
+    <session-list
+      [sortBy]="sortBy"
+      [filterBy]="filterBy"
+      [sessions]="event?.sessions"
+    ></session-list>
+  </div>
 </div>

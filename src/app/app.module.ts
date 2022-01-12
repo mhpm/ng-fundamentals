@@ -11,7 +11,7 @@ import {
   CollapsibleComponent,
 } from './components';
 
-import { FormValidationService, ToastrService } from './services';
+import { FormValidationService, TOASTR_TOKEN, IToastr } from './services';
 import { AboutComponent } from './pages/about/about.component';
 
 import {
@@ -26,6 +26,9 @@ import {
 } from './pages/events';
 import { SessionListComponent } from './pages/events/details/session/list/session-list.component';
 import { AuthService } from './modules/user/services/auth.service';
+import { DurationPipe } from './shared';
+
+declare let toastr: IToastr;
 
 @NgModule({
   imports: [
@@ -46,11 +49,12 @@ import { AuthService } from './modules/user/services/auth.service';
     CollapsibleComponent,
     AboutComponent,
     Error404Component,
+    DurationPipe,
   ],
   providers: [
     EventListResolver,
     EventService,
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr },
     AuthService,
     FormValidationService,
     EventRouteActivator,

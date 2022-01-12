@@ -1,4 +1,4 @@
-<div class="row" *ngFor="let session of sessions">
+<div class="row" *ngFor="let session of visibleSessions">
   <div class="col-md">
     <collapsible>
       <h4 title>
@@ -6,7 +6,7 @@
       </h4>
       <div body>
         <h6>{{ session.presenter }}</h6>
-        <span>Duration: {{ session.duration }}</span
+        <span>Duration: {{ session.duration | duration }}</span
         ><br />
         <span>Level: {{ session.level }}</span>
         <p>{{ session.abstract }}</p>
@@ -14,3 +14,4 @@
     </collapsible>
   </div>
 </div>
+<div class="text-center" *ngIf="!visibleSessions.length">No sessions</div>
