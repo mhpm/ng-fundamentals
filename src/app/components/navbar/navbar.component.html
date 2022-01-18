@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container-fluid px-4">
     <a class="navbar-brand" [routerLink]="['/events']">ANGULAR EVENTS</a>
+
     <button
       class="navbar-toggler"
       type="button"
@@ -41,7 +42,8 @@
           >
         </li>
       </ul>
-      <form class="d-flex">
+      <form class="d-lg-flex d-sm-block">
+        <search-input (onSearch)="searchSession($event)"></search-input>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a

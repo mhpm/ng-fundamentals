@@ -9,9 +9,15 @@ import {
   NavbarCompoent,
   Error404Component,
   CollapsibleComponent,
+  SearchInputComponent,
 } from './components';
 
-import { FormValidationService, TOASTR_TOKEN, IToastr } from './services';
+import {
+  FormValidationService,
+  TOASTR_TOKEN,
+  IToastr,
+  JQ_TOKEN,
+} from './services';
 import { AboutComponent } from './pages/about/about.component';
 
 import {
@@ -29,6 +35,7 @@ import { AuthService } from './modules/user/services/auth.service';
 import { DurationPipe } from './shared';
 
 declare let toastr: IToastr;
+declare let jQuery: Object;
 
 @NgModule({
   imports: [
@@ -47,6 +54,7 @@ declare let toastr: IToastr;
     CreateEventComponent,
     SessionListComponent,
     CollapsibleComponent,
+    SearchInputComponent,
     AboutComponent,
     Error404Component,
     DurationPipe,
@@ -55,6 +63,7 @@ declare let toastr: IToastr;
     EventListResolver,
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
     AuthService,
     FormValidationService,
     EventRouteActivator,
