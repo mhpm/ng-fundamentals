@@ -43,7 +43,11 @@
         </li>
       </ul>
       <form class="d-lg-flex d-sm-block">
-        <search-input (onSearch)="searchSession($event)"></search-input>
+        <search-input
+          (onSearch)="searchSession($event)"
+          [results]="foundSessions"
+          (onClickItem)="selectedItem($event)"
+        ></search-input>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a

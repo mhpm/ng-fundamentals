@@ -53,58 +53,62 @@
     ></create-session>
   </div>
   <div *ngIf="!addMode">
-    <div class="d-flex justify-content-center mb-2">
-      <div class="btn-group me-3" role="group">
-        <button
-          (click)="sortBy = 'name'"
-          [class.active]="sortBy === 'name'"
-          type="button"
-          class="btn btn-outline-dark"
-        >
-          By name
-        </button>
-        <button
-          (click)="sortBy = 'votes'"
-          [class.active]="sortBy === 'votes'"
-          type="button"
-          class="btn btn-outline-dark"
-        >
-          By votes
-        </button>
+    <div class="row mb-2">
+      <div class="col-md-2 mb-2">
+        <div class="btn-group me-3" role="group">
+          <button
+            (click)="sortBy = 'name'"
+            [class.active]="sortBy === 'name'"
+            type="button"
+            class="btn btn-outline-dark"
+          >
+            By name
+          </button>
+          <button
+            (click)="sortBy = 'votes'"
+            [class.active]="sortBy === 'votes'"
+            type="button"
+            class="btn btn-outline-dark"
+          >
+            By votes
+          </button>
+        </div>
       </div>
-      <div class="btn-group" role="group">
-        <button
-          (click)="filterBy = 'all'"
-          [class.active]="filterBy === 'all'"
-          type="button"
-          class="btn btn-outline-dark"
-        >
-          All
-        </button>
-        <button
-          (click)="filterBy = 'beginer'"
-          [class.active]="filterBy === 'beginer'"
-          type="button"
-          class="btn btn-outline-dark"
-        >
-          Beginer
-        </button>
-        <button
-          (click)="filterBy = 'intermediate'"
-          [class.active]="filterBy === 'intermediate'"
-          type="button"
-          class="btn btn-outline-dark"
-        >
-          Intermediate
-        </button>
-        <button
-          (click)="filterBy = 'advanced'"
-          [class.active]="filterBy === 'advanced'"
-          type="button"
-          class="btn btn-outline-dark"
-        >
-          Advanced
-        </button>
+      <div class="col-md">
+        <div class="btn-group" role="group">
+          <button
+            (click)="filterBy = 'all'"
+            [class.active]="filterBy === 'all'"
+            type="button"
+            class="btn btn-outline-dark"
+          >
+            All
+          </button>
+          <button
+            (click)="filterBy = 'beginer'"
+            [class.active]="filterBy === 'beginer'"
+            type="button"
+            class="btn btn-outline-dark"
+          >
+            Beginer
+          </button>
+          <button
+            (click)="filterBy = 'intermediate'"
+            [class.active]="filterBy === 'intermediate'"
+            type="button"
+            class="btn btn-outline-dark"
+          >
+            Intermediate
+          </button>
+          <button
+            (click)="filterBy = 'advanced'"
+            [class.active]="filterBy === 'advanced'"
+            type="button"
+            class="btn btn-outline-dark"
+          >
+            Advanced
+          </button>
+        </div>
       </div>
     </div>
 

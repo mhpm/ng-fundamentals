@@ -10,6 +10,7 @@ import {
   Error404Component,
   CollapsibleComponent,
   SearchInputComponent,
+  ModalComponent,
 } from './components';
 
 import {
@@ -29,6 +30,8 @@ import {
   EventRouteActivator,
   EventThumbnailComponent,
   EventService,
+  UpVoterComponent,
+  VoteService,
 } from './pages/events';
 import { SessionListComponent } from './pages/events/details/session/list/session-list.component';
 import { AuthService } from './modules/user/services/auth.service';
@@ -55,13 +58,16 @@ declare let jQuery: Object;
     SessionListComponent,
     CollapsibleComponent,
     SearchInputComponent,
+    ModalComponent,
     AboutComponent,
+    UpVoterComponent,
     Error404Component,
     DurationPipe,
   ],
   providers: [
     EventListResolver,
     EventService,
+    VoteService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
     AuthService,

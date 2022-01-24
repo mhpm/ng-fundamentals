@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/user/services/auth.service';
 import { EventService, ISession } from 'src/app/pages/events';
 
@@ -11,13 +12,17 @@ export class NavbarCompoent {
 
   constructor(
     public authService: AuthService,
-    private eventService: EventService
+    private eventService: EventService,
+    private router: Router
   ) {}
 
   searchSession(searchTerm: string) {
     this.eventService.searchSession(searchTerm).subscribe((sessions) => {
       this.foundSessions = sessions;
-      console.log(this.foundSessions);
     });
+  }
+
+  selectedItem(item: any) {
+    this.router.navigate(['/events', item.eventId]);
   }
 }
