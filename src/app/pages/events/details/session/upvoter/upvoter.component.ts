@@ -6,8 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     <div (click)="onClick()" class="bg-dark p-2 rounded-3">
       <div class="d-block text-center">
         <div role="button">
-          <i *ngIf="voted" class="bi bi-heart-fill"></i>
-          <i *ngIf="!voted" class="bi bi-heart"></i>
+          <i class="bi bi-heart-fill" [style.color]="iconColor"></i>
         </div>
         <div class="badge">
           <span>{{ count }}</span>
@@ -18,9 +17,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class UpVoterComponent {
   @Input() count: number;
-  @Input() voted: boolean;
+  @Input() set voted(value: boolean) {
+    this.iconColor = value ? 'tomato' : 'white';
+  }
   @Output() vote = new EventEmitter();
-
+  iconColor: string;
   onClick(): void {
     this.vote.emit({});
   }
