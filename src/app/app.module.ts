@@ -27,15 +27,17 @@ import {
   EventsListComponent,
   CreateSessionComponent,
   EventListResolver,
-  EventRouteActivator,
   EventThumbnailComponent,
   EventService,
   UpVoterComponent,
   VoteService,
+  EventResolver,
 } from './pages/events';
 import { SessionListComponent } from './pages/events/details/session/list/session-list.component';
 import { AuthService } from './modules/user/services/auth.service';
 import { DurationPipe } from './shared';
+
+import { HttpClientModule } from '@angular/common/http';
 
 declare let toastr: IToastr;
 declare let jQuery: Object;
@@ -46,6 +48,7 @@ declare let jQuery: Object;
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   declarations: [
     NavbarCompoent,
@@ -72,7 +75,7 @@ declare let jQuery: Object;
     { provide: JQ_TOKEN, useValue: jQuery },
     AuthService,
     FormValidationService,
-    EventRouteActivator,
+    EventResolver,
   ],
   bootstrap: [AppComponent],
 })

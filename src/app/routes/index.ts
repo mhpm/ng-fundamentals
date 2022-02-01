@@ -9,6 +9,7 @@ import {
   EventListResolver,
   EventRouteActivator,
   CreateSessionComponent,
+  EventResolver,
 } from '../pages/events';
 
 export const appRoutes: Routes = [
@@ -25,7 +26,7 @@ export const appRoutes: Routes = [
   {
     path: 'events/:id',
     component: EventDetailComponent,
-    canActivate: [EventRouteActivator], // guard for prevent user access
+    resolve: { event: EventResolver }, // guard for prevent user access
   },
   {
     path: 'events/session/new',

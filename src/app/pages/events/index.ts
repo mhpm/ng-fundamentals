@@ -12,3 +12,4 @@ export * from './services/event.service';
 export * from './event.model';
 
 export * from './details/session/upvoter/voter.service';
+export * from './services/event-resolver.service';
