@@ -7,7 +7,6 @@ import {
   EventDetailComponent,
   EventsListComponent,
   EventListResolver,
-  EventRouteActivator,
   CreateSessionComponent,
   EventResolver,
 } from '../pages/events';

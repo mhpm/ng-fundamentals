@@ -72,5 +72,8 @@
         Cancel
       </button>
     </form>
+    <div *ngIf="loginInvalid" class="alert alert-danger mt-4">
+      Invalid login info
+    </div>
   </div>
 </div>
